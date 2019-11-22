@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weather App</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-brand mb-0 h1">Weather Dashboard</span>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div id="firstColumn" class="col-3">
+                <div id="search-row" class="row">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Search City">
+                        <div class="input-group-append">
+                          <button class="btn btn-outline-secondary" type="button" id="button-search-city">Button</button>
+                        </div>
+                      </div>
+                </div>
+                <div class="row cityRow">
+                    Minneapolis
+                </div>
+                <div class="row cityRow">
+                    Toronto
+                </div>
+                <div class="row cityRow">
+                    San Diego
+                </div>
+                <div class="row cityRow">
+                    New York
+                </div>
+            </div>
+            <div id="secondColumn" class="col-9">
+                <div id="currentWeatherDiv" class="row currentWeather border border-dark">
+                    Current Weather
+                </div>
+                <div id="forecastWeastherDiv" class="row forecastWeasther border border-dark">
+                    Forecast Weather
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+
+
+
+
+
+
+    </div>
+
+
+
+    <script src="./assets/script.js"></script>
+</body>
+
+</html>
