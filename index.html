@@ -18,34 +18,47 @@
     </nav>
     <div class="container">
         <div class="row">
-            <div id="firstColumn" class="col-3">
+            <div id="firstColumn" class="col-3 m-1">
                 <div id="search-row" class="row">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Search City">
+                        <input id="input-city" type="text" class="form-control" placeholder="Search City">
                         <div class="input-group-append">
-                          <button class="btn btn-outline-secondary" type="button" id="button-search-city">Button</button>
+                            <button class="btn btn-outline-secondary" type="submit"
+                                id="button-search-city">Button</button>
                         </div>
-                      </div>
+                    </div>
                 </div>
-                <div class="row cityRow">
-                    Minneapolis
-                </div>
-                <div class="row cityRow">
-                    Toronto
-                </div>
-                <div class="row cityRow">
-                    San Diego
-                </div>
-                <div class="row cityRow">
-                    New York
+                <div id="cityBtnSpace" class="row cityRow">
+                
                 </div>
             </div>
-            <div id="secondColumn" class="col-9">
+            <div id="secondColumn" class="col-8">
                 <div id="currentWeatherDiv" class="row currentWeather border border-dark">
                     Current Weather
                 </div>
-                <div id="forecastWeastherDiv" class="row forecastWeasther border border-dark">
-                    Forecast Weather
+                <div id="forecastWeastherDiv" class="row forecastWeather border border-dark">
+                    <!-- <div class="row"> -->
+                    <p class="forecast-title">5 Day Forecast:</p>
+                    <!-- </div> -->
+                    <!-- <div class="row"> -->
+                    <div class="w-100"></div>
+
+                    <div id="box-1-js" class="col-2 m-1 border border-secondary ">
+                        1
+                    </div>
+                    <div id="box-2-js" class="col-2 m-1 border border-secondary ">
+                        2
+                    </div>
+                    <div id="box-3-js" class="col-2 m-1 border border-secondary ">
+                        3
+                    </div>
+                    <div id="box-4-js" class="col-2 m-1 border border-secondary ">
+                        4
+                    </div>
+                    <div id="box-5-js" class="col-2 m-1 border border-secondary ">
+                        5
+                    </div>
+                    <!-- </div> -->
                 </div>
 
             </div>
@@ -63,7 +76,7 @@
     </div>
 
 
-
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./assets/script.js"></script>
 </body>
 
