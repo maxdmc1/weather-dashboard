@@ -100,7 +100,7 @@ function searchCity() {
                     let currentCityUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=imperial&appid=2b0a8c513905263b5387153b0ed5df1f";
                     axios.get(currentCityUrl)
                         .then(function (response) {
-                            
+
                             let temp = response.data.main.temp;
                             let humid = response.data.main.humidity;
                             let wind = response.data.wind.speed;
@@ -111,20 +111,28 @@ function searchCity() {
                             currentCityEl.setAttribute("class", "currentCity mb-2");
                             currentCitySpaceEl.innerText = ""
                             currentIcon = response.data.weather[0].icon;
-                            currentCityEl.innerHTML = cityName + " " + " -- " + " " + date + "<img src = 'http://openweathermap.org/img/wn/" + currentIcon + "@2x.png'></img>";
+                            currentCityEl.innerHTML = cityName + " " + " -- " + " " + date + "<img src = 'https://openweathermap.org/img/wn/" + currentIcon + "@2x.png'></img>";
                             currentCitySpaceEl.append(currentCityEl);
 
 
                             tempDisplay.innerHTML = "Temperature: " + temp + " F°"
                             HumidDisplay.innerHTML = "Humidity: " + humid + "%"
                             windDisplay.innerHTML = "Wind Speed: " + wind + " mph"
-                            let uvQueryURL = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=2b0a8c513905263b5387153b0ed5df1f"
 
+                            let uvQueryURL = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=2b0a8c513905263b5387153b0ed5df1f"
                             axios.get(uvQueryURL)
                                 .then(function (response) {
                                     // console.log(response);
                                     let uvIndex = response.data.value;
                                     uvDisplay.innerHTML = "UV Index: " + uvIndex;
+                                })
+                            let forecastURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=2b0a8c513905263b5387153b0ed5df1f"
+
+                            axios.get(forecastURL)
+                                .then(function (response) {
+                                    console.log(response);
+
+
                                 })
                         });
 
