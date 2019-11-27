@@ -60,7 +60,7 @@ function searchCity() {
             .then(function (response) {
 
                 // console.log(queryURL)
-                // console.log(response);
+                console.log(response);
                 // console.log("wind:", response.data.wind.speed);
                 // console.log("humidity:", response.data.main.humidity);
                 // console.log("temperature:", response.data.main.temp);
@@ -102,12 +102,16 @@ function searchCity() {
                         });
                     };
                 };
+function displayForecast(){ 
+
+}
+
                 function displayCurrent() {
                     const currentCityEl = document.createElement("div");
                     currentCityEl.setAttribute("class", "currentCity mb-2");
                     currentCitySpaceEl.innerText = ""
                     currentIcon = response.data.weather[0].icon;
-                    currentCityEl.innerHTML = cityName + " " + " -- " + " " + date + "<img src = 'http://openweathermap.org/img/wn/" + currentIcon + "@2x.png'></img>";
+                    currentCityEl.innerHTML = cityName + " " + " -- " + " " + date + "<img src = 'https://openweathermap.org/img/wn/" + currentIcon + "@2x.png'></img>";
                     currentCitySpaceEl.append(currentCityEl);
 
 
