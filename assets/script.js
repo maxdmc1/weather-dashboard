@@ -58,9 +58,9 @@ function searchCity() {
         // console.log(queryURL);
         axios.get(queryURL)
             .then(function (response) {
-
+                let cityName = response.data.name;
                 // console.log(queryURL)
-                console.log(response);
+                // console.log(response);
                 // console.log("wind:", response.data.wind.speed);
                 // console.log("humidity:", response.data.main.humidity);
                 // console.log("temperature:", response.data.main.temp);
@@ -73,12 +73,6 @@ function searchCity() {
                 const cities = JSON.parse(cityStr);
                 cities.push(response.data.name);
                 localStorage.setItem("city-ls", JSON.stringify(cities));
-                let cityName = response.data.name;
-                let temp = response.data.main.temp;
-                let humid = response.data.main.humidity;
-                let wind = response.data.wind.speed;
-                let lat = response.data.coord.lat;
-                let lon = response.data.coord.lon;
 
                 // console.log(localStorage);
                 // console.log(cities);
@@ -97,44 +91,49 @@ function searchCity() {
                         cityBtnSpaceEl.append(cityBtnEl);
                         cityBtnEl.addEventListener("click", function () {
                             cityName = cityBtnEl.innerHTML;
-                            console.log(cityName);
+                            // console.log(cityName);
                             displayCurrent();
                         });
                     };
                 };
-function displayForecast(){ 
-
-}
-
                 function displayCurrent() {
-                    const currentCityEl = document.createElement("div");
-                    currentCityEl.setAttribute("class", "currentCity mb-2");
-                    currentCitySpaceEl.innerText = ""
-                    currentIcon = response.data.weather[0].icon;
-                    currentCityEl.innerHTML = cityName + " " + " -- " + " " + date + "<img src = 'https://openweathermap.org/img/wn/" + currentIcon + "@2x.png'></img>";
-                    currentCitySpaceEl.append(currentCityEl);
-
-
-                    tempDisplay.innerHTML = "Temperature: " + temp + " F°"
-                    HumidDisplay.innerHTML = "Humidity: " + humid + "%"
-                    windDisplay.innerHTML = "Wind Speed: " + wind + " mph"
-
-                    let uvQueryURL = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=2b0a8c513905263b5387153b0ed5df1f"
-
-                    axios.get(uvQueryURL)
+                    let currentCityUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=imperial&appid=2b0a8c513905263b5387153b0ed5df1f";
+                    axios.get(currentCityUrl)
                         .then(function (response) {
-                            // console.log(response);
-                            let uvIndex = response.data.value;
-                            uvDisplay.innerHTML = "UV Index: " + uvIndex;
-                        })
+                            
+                            let temp = response.data.main.temp;
+                            let humid = response.data.main.humidity;
+                            let wind = response.data.wind.speed;
+                            let lat = response.data.coord.lat;
+                            let lon = response.data.coord.lon;
+                            // console.log(currentCityUrl);
+                            const currentCityEl = document.createElement("div");
+                            currentCityEl.setAttribute("class", "currentCity mb-2");
+                            currentCitySpaceEl.innerText = ""
+                            currentIcon = response.data.weather[0].icon;
+                            currentCityEl.innerHTML = cityName + " " + " -- " + " " + date + "<img src = 'http://openweathermap.org/img/wn/" + currentIcon + "@2x.png'></img>";
+                            currentCitySpaceEl.append(currentCityEl);
 
 
+                            tempDisplay.innerHTML = "Temperature: " + temp + " F°"
+                            HumidDisplay.innerHTML = "Humidity: " + humid + "%"
+                            windDisplay.innerHTML = "Wind Speed: " + wind + " mph"
+                            let uvQueryURL = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=2b0a8c513905263b5387153b0ed5df1f"
+
+                            axios.get(uvQueryURL)
+                                .then(function (response) {
+                                    // console.log(response);
+                                    let uvIndex = response.data.value;
+                                    uvDisplay.innerHTML = "UV Index: " + uvIndex;
+                                })
+                        });
 
                 };
-            })
+            });
+
     });
 
-
-
 };
+
+
 searchCity()
