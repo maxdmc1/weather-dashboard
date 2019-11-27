@@ -29,12 +29,19 @@
                     </div>
                 </div>
                 <div id="cityBtnSpace" class="row cityRow">
-                
+
                 </div>
             </div>
             <div id="secondColumn" class="col-8">
-                <div id="currentWeatherDiv" class="row currentWeather border border-dark">
-                    Current Weather
+                <div id="currentWeatherDiv" class="row currentCity mb-2 currentWeather border border-dark">
+
+                </div>
+                <div class="row border border-dark">
+
+                    <div class="conditions" id="temperatureSpace-js"></div>
+                    <div class="conditions" id="humiditySpace-js"></div>
+                    <div class="conditions" id="windSpace-js"></div>
+                    <div class="conditions" id="uvSpace-js"></div>
                 </div>
                 <div id="forecastWeastherDiv" class="row forecastWeather border border-dark">
                     <!-- <div class="row"> -->
@@ -75,7 +82,7 @@
 
     </div>
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./assets/script.js"></script>
 </body>

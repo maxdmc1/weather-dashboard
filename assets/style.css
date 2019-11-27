@@ -2,3 +2,12 @@
     width: 100%;
     
 }
+.currentCity{
+    text-emphasis: bold;
+    font-size: larger;
+}
+.conditions{
+    width: 100%;
+    font-size: normal;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
