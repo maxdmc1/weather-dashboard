@@ -73,7 +73,7 @@ function searchCity() {
                 const cities = JSON.parse(cityStr);
                 cities.push(response.data.name);
                 localStorage.setItem("city-ls", JSON.stringify(cities));
-                cityName = response.data.name;
+                let cityName = response.data.name;
                 let temp = response.data.main.temp;
                 let humid = response.data.main.humidity;
                 let wind = response.data.wind.speed;
@@ -85,6 +85,23 @@ function searchCity() {
                 createCityBtns(cities)
                 displayCurrent(cityName)
 
+                function createCityBtns(cities) {
+
+                    cityBtnSpaceEl = document.getElementById("cityBtnSpace")
+                    cityBtnSpaceEl.innerHTML = "";
+
+                    for (i = 0; i < cities.length; i++) {
+                        const cityBtnEl = document.createElement("button");
+                        cityBtnEl.setAttribute("class", "cityRow mb-1")
+                        cityBtnEl.innerHTML = cities[i];
+                        cityBtnSpaceEl.append(cityBtnEl);
+                        cityBtnEl.addEventListener("click", function () {
+                            cityName = cityBtnEl.innerHTML;
+                            console.log(cityName);
+                            displayCurrent();
+                        });
+                    };
+                };
                 function displayCurrent() {
                     const currentCityEl = document.createElement("div");
                     currentCityEl.setAttribute("class", "currentCity mb-2");
@@ -112,24 +129,8 @@ function searchCity() {
                 };
             })
     });
-    function createCityBtns(cities) {
 
-        cityBtnSpaceEl = document.getElementById("cityBtnSpace")
-        cityBtnSpaceEl.innerHTML = "";
 
-        for (i = 0; i < cities.length; i++) {
-            const cityBtnEl = document.createElement("button");
-            cityBtnEl.setAttribute("class", "cityRow mb-1")
-            cityBtnEl.innerHTML = cities[i];
-            cityBtnSpaceEl.append(cityBtnEl);
-        }
-    };
+
 };
 searchCity()
-
-
-
-
-// const buttonEl = document.querySelector("#button");
-//         buttonEl.addEventListener("click", function() {
-//         });
